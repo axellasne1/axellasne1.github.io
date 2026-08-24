@@ -1,81 +1,122 @@
-main:
-  - title: Education
-    type: time_table
-    contents:
-      - title: M.Eng. Aeronautical Engineering - Propulsion Systems and Onboard Energies
-        institution: ESTACA, France
-        year: 2017 - 2024
-        description: []
+cv:
+  name: Axel Lasne
+  label: Aerospace Verification Engineer — HIL, Systems Test & Flight-Test Mindset
+  address:
+    city: Munich
+    region: Germany
+  email: axel.lasne@estaca.eu
+  summary: >-
+    Aerospace verification engineer focused on hardware-in-the-loop (HIL)
+    validation, embedded systems testing, and Python test automation. Private
+    pilot bringing a practical flight perspective to systems verification.
+  sections:
+    Education:
+      - institution: ESTACA
+        area: Aeronautical Engineering - Propulsion Systems and Onboard Energies
+        studyType: M.Eng.
+        location: France
+        start_date: 2017
+        end_date: 2024
 
-  - title: Experience
-    type: time_table
-    contents:
-      - title: Verification Engineer (Hardware in the Loop)
-        institution: Avilus, Munich
-        year: Dec 2025 - Present
-        description:
+    Experience:
+      - company: Avilus
+        position: Verification Engineer (Hardware in the Loop)
+        location: Munich, Germany
+        start_date: 2025-12
+        end_date: present
+        highlights:
           - Conduct HIL bench testing and real-time simulation to validate embedded systems under representative operating conditions.
           - Design functional and edge-case test scenarios, collect evidence, and analyse compliance against expected requirements.
           - Assess combined effects of defects and escalate integrity risks before aircraft handover to pilots.
           - Support release-readiness evidence, including fit-for-flight sign-off documentation.
           - Contribute to Python-based test automation and controlled test-equipment update workflows.
-      - title: System Test Engineer
-        institution: Technology & Strategy, Frankfurt
-        year: Mar 2024 - Nov 2025
-        description:
+      - company: Technology & Strategy
+        position: System Test Engineer
+        location: Frankfurt, Germany
+        start_date: 2024-03
+        end_date: 2025-11
+        highlights:
           - Validated vehicle systems and configurations supporting advanced software functions.
           - Performed track testing aligned with European standards, including Euro NCAP protocols.
           - Produced test reports, managed defect tickets, and contributed to 33 percent of the team's resolved tickets.
           - Analysed the end-to-end test process, introduced Python automation for logs and software flashing, and improved efficiency by 50 percent in six months.
           - Helped scale the team to ten colleagues and coordinated test activity and the vehicle fleet.
-      - title: Project Manager
-        institution: Climairtec, Chateau-Landon, France
-        year: Nov 2023 - Feb 2024
-        description:
+      - company: Climairtec
+        position: Project Manager
+        location: Chateau-Landon, France
+        start_date: 2023-11
+        end_date: 2024-02
+        highlights:
           - Supported technical client problem-solving, project design in AutoCAD, and aerodynamic and hydraulic loss calculations.
           - Contributed to invoicing preparation for customer projects valued above EUR 1 million.
-      - title: Engineering Research Intern
-        institution: ETS, Montreal, Canada
-        year: Mar 2023 - Nov 2023
-        description:
+      - company: ETS Montreal
+        position: Engineering Research Intern
+        location: Montreal, Canada
+        start_date: 2023-03
+        end_date: 2023-11
+        highlights:
           - Modelled General Electric engine fuel consumption and component deterioration using aerothermodynamic equations.
           - Validated predictions within 5 percent of real-world data using CAE tools and MATLAB.
           - Presented the technical report at a PhD-level conference.
-      - title: Manufacturing Engineer Intern
-        institution: Centauri Aircraft Corporation, San Francisco, USA
-        year: Sep 2021 - Sep 2022
-        description:
+      - company: Centauri Aircraft Corporation
+        position: Manufacturing Engineer Intern
+        location: San Francisco, USA
+        start_date: 2021-09
+        end_date: 2022-09
+        highlights:
           - Contributed to composite airframe construction, aircraft maintenance, production tooling, and FAA certification activity.
           - Supported sourcing, inventory, and supplier research; trained colleagues and independently managed work streams.
-      - title: Project Management and Quality Engineer Intern
-        institution: Mecachrome, Amboise, France
-        year: May 2021 - Sep 2021
-        description:
+      - company: Mecachrome
+        position: Project Management and Quality Engineer Intern
+        location: Amboise, France
+        start_date: 2021-05
+        end_date: 2021-09
+        highlights:
           - Supported APQP deployment for the Airbus A220 NLGB project and facilitated a Lean Office workshop.
 
-  - title: Skills
-    type: nested_list
-    contents:
-      - title: Testing and Verification
-        items:
-          - HIL testing, real-time simulation, system integration, functional and stress testing
-          - Flight and track test procedures, evidence collection, labelling, CANoe and CANape
-      - title: Engineering and Software
-        items:
-          - Python test automation and scripting, C++, JavaScript, MATLAB/Simulink
-          - SolidWorks, Ansys, controlled update and version-control workflows
-      - title: Aviation
-        items:
-          - Private Pilot Licence holder with approximately 113 hours of dual and solo flight
-          - Model aircraft building and piloting, DJI Mavic 2 Pro, simulator-based remote-control test support
-      - title: Languages
-        items:
-          - French (C2), English (C1), Spanish (B1), German (A1)
+    Skills:
+      - name: Testing and Verification
+        keywords:
+          - HIL testing
+          - real-time simulation
+          - system integration
+          - functional and stress testing
+      - name: Flight and Track Test Procedures
+        keywords:
+          - evidence collection
+          - labelling
+          - CANoe
+          - CANape
+      - name: Engineering and Software
+        keywords:
+          - Python test automation and scripting
+          - C++
+          - JavaScript
+          - MATLAB/Simulink
+      - name: Design and Tooling
+        keywords:
+          - SolidWorks
+          - Ansys
+          - controlled update and version-control workflows
+      - name: Aviation
+        keywords:
+          - Private Pilot Licence (~113 hours of dual and solo flight)
+          - model aircraft building and piloting
+          - DJI Mavic 2 Pro
+          - simulator-based remote-control test support
 
-  - title: Qualifications
-    type: list
-    contents:
-      - Aeronautical Engineering Master's degree
-      - TOEIC 925/990
-      - Private Pilot Licence
-      - French and Californian driving licences
+    Languages:
+      - name: French
+        fluency: C2
+      - name: English
+        fluency: C1
+      - name: Spanish
+        fluency: B1
+      - name: German
+        fluency: A1
+
+    Certificates:
+      - name: TOEIC 925/990
+      - name: Private Pilot Licence
+      - name: French driving licence
+      - name: Californian driving licence
