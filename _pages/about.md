@@ -13,7 +13,6 @@ profile:
     <p><a href="mailto:axel.lasne@estaca.eu">axel.lasne@estaca.eu</a></p>
     <p>Available from December</p>
 
-news: false
 selected_papers: false
 social: true
 ---
