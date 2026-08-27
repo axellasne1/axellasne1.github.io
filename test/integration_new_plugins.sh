@@ -93,7 +93,10 @@ grep -q 'assets/al_email_protect/css/email-protect.css' "${protected_site}/index
   || fail "email-protect stylesheet referenced but not published"
 
 # ...and with it off (the default), the plugin costs nothing.
-grep -q 'al_email_protect' "${default_site}/index.html" \
+disabled_override="${tmp_dir}/protect-email-disabled.yml"
+printf 'protect_email: false\n' >"${disabled_override}"
+disabled_site="$(build disabled --config "_config.yml,${disabled_override}")"
+grep -q 'al_email_protect' "${disabled_site}/index.html" \
   && fail "email-protect assets loaded while disabled"
 
 echo "new plugin integration checks passed"
