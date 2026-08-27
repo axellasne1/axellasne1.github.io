@@ -34,8 +34,12 @@ At Technology & Strategy, I developed Python automation for log capture and soft
 
 Earlier, at ÉTS in Montréal, I built and validated a General Electric engine deterioration model whose consumption predictions were within **5% of real-world data**.
 
-## Next opportunity
+## Education
 
-I am seeking a Munich-based aerospace test or verification role from **December**, primarily in HIL and systems verification and also open to flight-test opportunities. I am comfortable working on-site, hybrid, or remotely.
+I hold a **Master of Engineering in Aeronautical Engineering**, specialising in propulsion systems and onboard energies, from **ESTACA** (2017–2024).
+
+## Open to opportunities
+
+I remain open to relevant opportunities in aerospace testing, verification, HIL, systems engineering, and flight test. I am comfortable working on-site, hybrid, or remotely.
 
 The best way to start a conversation is by [email](mailto:axel.lasne@estaca.eu) or through [LinkedIn](https://www.linkedin.com/in/axel-lasne/).

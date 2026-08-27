@@ -16,6 +16,10 @@ giscus:
   repo_id: R_kgDOExample
   category: Comments
   category_id: DIC_kwDOExample
+al_folio:
+  features:
+    distill:
+      enabled: true
 YAML
 
 bundle exec jekyll build --config "_config.yml,${tmp_override}" -d "${tmp_site}" >/dev/null
