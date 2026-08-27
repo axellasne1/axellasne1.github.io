@@ -1,15 +1,13 @@
 ---
 layout: page
-permalink: /teaching/
-title: teaching
-description: Course materials, schedules, and resources for classes taught.
+permalink: /education/
+title: education
+description: Aeronautical engineering education at ESTACA.
 nav: false
-nav_order: 6
-calendar: true
 ---
 
-This page displays a collection of courses with detailed schedules, materials, and resources. You can organize your courses by years, terms, or topics.
+## ESTACA
 
-{% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %}
-
-{% include courses.liquid %}
+**Master of Engineering in Aeronautical Engineering**<br>
+Specialisation: Propulsion Systems and Onboard Energies<br>
+2017–2024 · France

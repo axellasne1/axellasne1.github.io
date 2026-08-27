@@ -3,7 +3,7 @@ layout: page
 title: selected work
 permalink: /projects/
 description: Public case studies focused on verification, automation, and aviation.
-nav: true
+nav: false
 nav_order: 2
 display_categories: [verification, aviation]
 horizontal: false
