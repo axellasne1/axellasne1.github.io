@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Aerospace Verification Engineer | HIL, Systems Test & Flight-Test Mindset
+subtitle: Aerospace Verification Engineer | Risk Reduction, HIL Validation & System Confidence
 
 profile:
   align: right
@@ -17,22 +17,27 @@ selected_papers: false
 social: true
 ---
 
-I am an aerospace verification engineer focused on **hardware-in-the-loop (HIL) verification**, embedded systems validation, and test automation. My aim is simple: understand a system deeply enough to challenge it realistically, identify risk early, and help teams deliver dependable aircraft-ready solutions.
+I help engineering teams reduce risk before it becomes operationally expensive.
 
-I am currently a Verification Engineer at **Avilus** in Munich, contributing to HIL test campaigns and the validation of new technical solutions across the company's aircraft programmes. I have supported decisions not to release implementations when individually small defects combined into an integrity risk—giving the responsible teams the evidence and time to correct them before pilots received the aircraft.
+I am a verification engineer with experience in demanding aerospace environments, where system confidence, early defect detection, and disciplined decision-making are essential. My work focuses on validating complex technical behaviour, understanding system interactions, and supporting release-readiness decisions with evidence rather than assumption.
+
+In small, fast-moving teams, I have developed a strong appreciation for the importance of clear thinking, efficient analysis, and practical engineering judgment. I have used Python-based automation and structured data analysis to assess component transitions, investigate data exchanges, and identify root causes in complex system behaviour. This has helped reduce investigation time, improve early detection, and support more confident engineering decisions.
+
+My approach is grounded in realism: I focus on how systems behave under operationally relevant conditions, not only on nominal performance. This allows me to identify integration risks early, surface hidden failures before they become costly, and provide teams with the clarity they need to move forward with confidence.
 
 ## What I bring
 
-- **End-to-end test thinking:** requirements, test cases, real-time simulation, evidence, defect analysis, and release readiness.
-- **Automation that helps operations:** Python-based tooling and workflow improvements that make test execution, machine status, logging, and software updates more reliable.
-- **A practical flight perspective:** private pilot with approximately 113 hours of dual and solo flight, long-time aeromodelling enthusiast, drone pilot, and simulator-based remote-control test support.
-- **A collaborative way of working:** experience coordinating test activity, vehicle fleets, and a growing team while working directly with OEM and engineering stakeholders.
+- **End-to-end verification thinking:** requirements, test strategy, system interaction analysis, defect investigation, and evidence-based decision support.
+- **Automation that improves efficiency:** Python-based tooling to assess transitions, analyse data flows, and identify issues before they escalate.
+- **Strong engineering judgment in demanding environments:** experience working in compact, high-performance teams where decisions have a direct impact on programme quality and risk.
+- **A practical systems perspective:** focused on HIL validation, embedded system behaviour, and operational realism.
+- **International adaptability:** experience working across different environments and cultures, which has strengthened my ability to integrate quickly and operate effectively under changing conditions.
 
 ## Selected results
 
-At Technology & Strategy, I developed Python automation for log capture and software flashing, helping improve operating efficiency by **50% in six months**. By mapping the end-to-end process and removing bottlenecks, I also helped scale the team to meet growing demand while preserving delivery quality.
+In aerospace settings, I have helped detect issues early by analysing component transitions and system interactions rather than relying on isolated checks alone. This has enabled more targeted investigation, faster root-cause identification, and better support for engineering decisions before problems become more costly downstream.
 
-Earlier, at ÉTS in Montréal, I built and validated a General Electric engine deterioration model whose consumption predictions were within **5% of real-world data**.
+I have also developed Python-based analysis workflows to automate parts of the validation process, reducing manual effort and allowing teams to focus on the highest-risk or most relevant issues. This improves efficiency while preserving technical depth and traceability.
 
 ## Education
 
@@ -40,6 +45,6 @@ I hold a **Master of Engineering in Aeronautical Engineering**, specialising in 
 
 ## Open to opportunities
 
-I remain open to relevant opportunities in aerospace testing, verification, HIL, systems engineering, and flight test. I am comfortable working on-site, hybrid, or remotely.
+I remain open to relevant opportunities in aerospace verification, HIL validation, systems engineering, and test engineering. I am comfortable working on-site, hybrid, or remotely.
 
 The best way to start a conversation is by [email](mailto:axel.lasne@estaca.eu) or through [LinkedIn](https://www.linkedin.com/in/axel-lasne/).
