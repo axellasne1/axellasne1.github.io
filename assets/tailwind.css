@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-medium rounded-lg px-6 py-3
+           hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50
+           transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border border-input bg-transparent px-6 py-3 font-medium rounded-lg
+           hover:bg-accent hover:text-accent-foreground focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           disabled:opacity-50 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-xl border border-border
+           shadow-sm hover:shadow-lg transition-all duration-300;
+  }
+
+  .input {
+    @apply bg-background text-foreground rounded-md border border-input
+           px-4 py-3 focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-ring focus-visible:ring-offset-0
+           disabled:opacity-50 transition-all duration-200;
+  }
+
+  .label {
+    @apply text-sm font-medium text-foreground mb-2 block;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .badge-muted {
+    @apply bg-muted text-muted-foreground;
+  }
+}
+
+/* Custom utility extensions */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation-name: enter;
+    animation-duration: 0.15s;
+    --animate-enter: initial-opacity;
+    --animate-enter: initial-scale;
+    --animate-enter: initial-rotate;
+    --animate-enter: initial-translate-x;
+    --animate-enter: initial-translate-y;
+  }
+
+  .fade-in {
+    @animate-enter initial-opacity: 0;
+    @animate-enter initial-scale: 1;
+    @animate-enter initial-rotate: 0;
+    @animate-enter initial-translate-x: 0;
+    @animate-enter initial-translate-y: 0;
+    @animate-exit initial-opacity: 1;
+    @animate-exit initial-scale: 1;
+    @animate-exit initial-rotate: 0;
+    @animate-exit initial-translate-x: 0;
+    @animate-exit initial-translate-y: 0;
+  }
+
+  .zoom-in {
+    @animate-enter initial-opacity: 0;
+    @animate-enter initial-scale: 0.95;
+    @animate-enter initial-rotate: 0;
+    @animate-enter initial-translate-x: 0;
+    @animate-enter initial-translate-y: 0;
+    @animate-exit initial-opacity: 1;
+    @animate-exit initial-scale: 1;
+    @animate-exit initial-rotate: 0;
+    @animate-exit initial-translate-x: 0;
+    @animate-exit initial-translate-y: 0;
+  }
+
+  .slide-up {
+    @animate-enter initial-opacity: 0;
+    @animate-enter initial-scale: 1;
+    @animate-enter initial-rotate: 0;
+    @animate-enter initial-translate-x: 0;
+    @animate-enter initial-translate-y: 10%;
+    @animate-exit initial-opacity: 1;
+    @animate-exit initial-scale: 1;
+    @animate-exit initial-rotate: 0;
+    @animate-exit initial-translate-x: 0;
+    @animate-exit initial-translate-y: 0;
+  }
+}
+
+/* Custom animations */
+@keyframes enter {
+  from {
+    opacity: var(--animate-enter-opacity, 0);
+    transform: translate3d(
+      var(--animate-enter-translate-x, 0),
+      var(--animate-enter-translate-y, 0),
+      0
+    ) scale(var(--animate-enter-scale, 1))
+      rotate(var(--animate-enter-rotate, 0));
+  }
+
+  to {
+    opacity: var(--animate-exit-opacity, 1);
+    transform: translate3d(
+      var(--animate-exit-translate-x, 0),
+      var(--animate-exit-translate-y, 0),
+      0
+    ) scale(var(--animate-exit-scale, 1))
+      rotate(var(--animate-exit-rotate, 0));
+  }
+}
+
+/* Custom smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection colors */
+::selection {
+  @apply bg-primary/20 text-primary;
+}
+
+/* Custom focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2;
+}
+
+/* Typography tweaks */
+h1, h2, h3, h4, h5, h6 {
+  @apply tracking-tight font-display;
+}
+
+.prose {
+  @apply max-w-none;
+}
+
+.prose :where(p):not(:where([class~="not-prose"]):where(*) {
+  @apply mb-4 text-lg;
+}
+
+.prose :where(ul):not(:where([class~="not-prose"]):where(*) {
+  @apply mb-4 pl-5 list-disc;
+}
+
+.prose :where(ol):not(:where([class~="not-prose"]):where(*) {
+  @apply mb-4 pl-5 list-decimal;
+}
+
+.prose :where(blockquote):not(:where([class~="not-prose"]):where(*) {
+  @apply mb-4 pl-4 border-l-4 border-primary/20 italic;
+}
+
+.prose :where(h1):not(:where([class~="not-prose"]):where(*) {
+  @apply mt-6 mb-4 text-4xl font-bold tracking-tight;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"]):where(*) {
+  @apply mt-6 mb-3 text-3xl font-semibold tracking-tight;
+}
+
+.prose :where(h3):not(:where([class~="not-prose"]):where(*) {
+  @apply mt-5 mb-2 text-2xl font-semibold tracking-tight;
+}
+
+/* Hero section styles */
+.hero {
+  @apply min-h-[calc(100vh-4.5rem)] flex flex-col items-center justify-center
+         bg-background/50 px-6 py-12 sm:py-16 text-center;
+}
+
+.hero-title {
+  @apply text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl;
+}
+
+.hero-subtitle {
+  @apply mt-4 max-w-xl text-lg text-muted-foreground sm:text-xl;
+}
+
+/* Section styles */
+.section {
+  @apply py-16 sm:py-20;
+}
+
+.section-title {
+  @apply text-3xl font-bold tracking-tight text-foreground mb-8 sm:text-4xl;
+}
+
+/* Navigation styles */
+.navbar {
+  @apply bg-background/80 backdrop-blur-sm border-b border-border/50
+         px-4 sm:px-6 lg:px-8;
+}
+
+/* Footer styles */
+.footer {
+  @apply bg-background/90 backdrop-blur-sm border-t border-border/50
+         px-4 sm:px-6 lg:px-8;
+}
