@@ -180,21 +180,13 @@
 @keyframes enter {
   from {
     opacity: var(--animate-enter-opacity, 0);
-    transform: translate3d(
-      var(--animate-enter-translate-x, 0),
-      var(--animate-enter-translate-y, 0),
-      0
-    ) scale(var(--animate-enter-scale, 1))
+    transform: translate3d(var(--animate-enter-translate-x, 0), var(--animate-enter-translate-y, 0), 0) scale(var(--animate-enter-scale, 1))
       rotate(var(--animate-enter-rotate, 0));
   }
 
   to {
     opacity: var(--animate-exit-opacity, 1);
-    transform: translate3d(
-      var(--animate-exit-translate-x, 0),
-      var(--animate-exit-translate-y, 0),
-      0
-    ) scale(var(--animate-exit-scale, 1))
+    transform: translate3d(var(--animate-exit-translate-x, 0), var(--animate-exit-translate-y, 0), 0) scale(var(--animate-exit-scale, 1))
       rotate(var(--animate-exit-rotate, 0));
   }
 }
@@ -215,7 +207,12 @@ html {
 }
 
 /* Typography tweaks */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply tracking-tight font-display;
 }
 
@@ -223,31 +220,31 @@ h1, h2, h3, h4, h5, h6 {
   @apply max-w-none;
 }
 
-.prose :where(p):not(:where([class~="not-prose"]):where(*) {
+.prose :where(p):not(:where([class~="not-prose"])) {
   @apply mb-4 text-lg;
 }
 
-.prose :where(ul):not(:where([class~="not-prose"]):where(*) {
+.prose :where(ul):not(:where([class~="not-prose"])) {
   @apply mb-4 pl-5 list-disc;
 }
 
-.prose :where(ol):not(:where([class~="not-prose"]):where(*) {
+.prose :where(ol):not(:where([class~="not-prose"])) {
   @apply mb-4 pl-5 list-decimal;
 }
 
-.prose :where(blockquote):not(:where([class~="not-prose"]):where(*) {
+.prose :where(blockquote):not(:where([class~="not-prose"])) {
   @apply mb-4 pl-4 border-l-4 border-primary/20 italic;
 }
 
-.prose :where(h1):not(:where([class~="not-prose"]):where(*) {
+.prose :where(h1):not(:where([class~="not-prose"])) {
   @apply mt-6 mb-4 text-4xl font-bold tracking-tight;
 }
 
-.prose :where(h2):not(:where([class~="not-prose"]):where(*) {
+.prose :where(h2):not(:where([class~="not-prose"])) {
   @apply mt-6 mb-3 text-3xl font-semibold tracking-tight;
 }
 
-.prose :where(h3):not(:where([class~="not-prose"]):where(*) {
+.prose :where(h3):not(:where([class~="not-prose"])) {
   @apply mt-5 mb-2 text-2xl font-semibold tracking-tight;
 }
 
