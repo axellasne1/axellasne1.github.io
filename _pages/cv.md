@@ -112,8 +112,7 @@ toc:
         <span class="flex items-center space-x-2">
           <div class="w-2 h-2 bg-primary rounded"></div>
           <span class="text-sm text-muted-foreground">MATLAB/Simulink</span>
-        </span>
-        <span class="flex items-center space-x-2">
+        </span
           <div class="w-2 h-2 bg-primary rounded"></div>
           <span class="text-sm text-muted-foreground">LabVIEW/TestStand</span>
         </span>
@@ -146,8 +145,7 @@ toc:
         <span class="flex items-center space-x-2">
           <div class="w-2 h-2 bg-primary rounded"></div>
           <span class="text-sm text-muted-foreground">DO-178C / DO-254</span>
-        </span>
-        <span class="flex items-center space-x-2">
+        </span
           <div class="w-2 h-2 bg-primary rounded"></div>
           <span class="text-sm text-muted-foreground">ISO 26262</span>
         </span>
