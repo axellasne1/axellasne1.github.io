@@ -17,7 +17,7 @@ build() {
   local name="$1"
   shift
   local out="${tmp_dir}/site-${name}"
-  bundle exec jekyll build "$@" -d "${out}" >/dev/null
+  bundle exec jekyll build "$@" -d "${out}" >/dev/null || return $?
   echo "${out}"
 }
 
@@ -26,12 +26,25 @@ fail() {
   exit 1
 }
 
+fixture_defaults="${tmp_dir}/fixture-defaults.yml"
+ruby -rpsych -e '
+  defaults = Psych.unsafe_load_file("_config.yml").fetch("defaults", [])
+  defaults << {
+    "scope" => { "path" => "_posts/2015-10-20-disqus-comments.md", "type" => "posts" },
+    "values" => { "lang" => "fa" }
+  }
+  defaults << {
+    "scope" => { "path" => "_posts/2022-12-10-giscus-comments.md", "type" => "posts" },
+    "values" => { "marimo" => true }
+  }
+  puts({ "defaults" => defaults }.to_yaml)
+' >"${fixture_defaults}"
+fixture_site="$(build fixtures --config "_config.yml,${fixture_defaults}")"
+
 # --- al_rtl -----------------------------------------------------------------
 
-default_site="$(build default)"
-
-rtl_page="${default_site}/blog/2022/rtl/index.html"
-[ -f "${rtl_page}" ] || fail "RTL demo post was not built"
+rtl_page="${fixture_site}/blog/2015/disqus-comments/index.html"
+[ -f "${rtl_page}" ] || fail "RTL test post was not built"
 
 # dir must sit on <html>, not on a wrapper: that is what the browser's bidi
 # algorithm and CSS logical properties key off.
@@ -41,37 +54,35 @@ grep -q 'assets/al_rtl/css/rtl.css' "${rtl_page}" || fail "RTL post does not loa
 
 # The stylesheet must actually exist where the tag points. Publishing it outside
 # /assets/ is a 404 that no unit test can see.
-[ -f "${default_site}/assets/al_rtl/css/rtl.css" ] || fail "rtl.css is referenced but not published"
+[ -f "${fixture_site}/assets/al_rtl/css/rtl.css" ] || fail "rtl.css is referenced but not published"
 
 # An English page must be untouched.
-grep -q 'dir="rtl"' "${default_site}/index.html" && fail "home page wrongly marked RTL"
-grep -q 'assets/al_rtl/css/rtl.css' "${default_site}/index.html" && fail "home page wrongly loads the RTL stylesheet"
+grep -q 'dir="rtl"' "${fixture_site}/index.html" && fail "home page wrongly marked RTL"
+grep -q 'assets/al_rtl/css/rtl.css' "${fixture_site}/index.html" && fail "home page wrongly loads the RTL stylesheet"
 
 # --- al_marimo --------------------------------------------------------------
 
-marimo_page="${default_site}/blog/2025/marimo/index.html"
-[ -f "${marimo_page}" ] || fail "marimo demo post was not built"
+marimo_page="${fixture_site}/blog/2022/giscus-comments/index.html"
+[ -f "${marimo_page}" ] || fail "marimo test post was not built"
 
 grep -q 'assets/al_marimo/js/marimo-snippets.js' "${marimo_page}" || fail "marimo post does not load the runtime"
-[ -f "${default_site}/assets/al_marimo/js/marimo-snippets.js" ] || fail "marimo runtime is referenced but not published"
+[ -f "${fixture_site}/assets/al_marimo/js/marimo-snippets.js" ] || fail "marimo runtime is referenced but not published"
 
 # The stylesheet matters on its own: it hides .al-marimo-inline until the runtime
 # has moved the code blocks into place. Without it a reader sees the raw source
 # before initialization, while the script hook still looks healthy.
 grep -q 'assets/al_marimo/css/marimo.css' "${marimo_page}" || fail "marimo post does not load the stylesheet"
-[ -f "${default_site}/assets/al_marimo/css/marimo.css" ] || fail "marimo stylesheet is referenced but not published"
+[ -f "${fixture_site}/assets/al_marimo/css/marimo.css" ] || fail "marimo stylesheet is referenced but not published"
 
 # Vendored, not fetched: no third-party origin may execute script in the page.
 grep -q 'cdn.jsdelivr.net/npm/@marimo-team' "${marimo_page}" && fail "marimo runtime is being loaded from a CDN"
 
 # A page that did not opt in must not pay for the plugin.
-grep -q 'al_marimo' "${default_site}/index.html" && fail "home page wrongly loads marimo"
+grep -q 'al_marimo' "${fixture_site}/index.html" && fail "home page wrongly loads marimo"
 
 # --- al_email_protect -------------------------------------------------------
 
-# Off by default, so this builds with an override rather than changing the
-# shipped config: turning it on for the demo site would flip the default for
-# everyone who copies this template.
+# Explicit overrides verify both settings independently of the site's default.
 override="${tmp_dir}/protect-email.yml"
 printf 'protect_email: true\n' >"${override}"
 protected_site="$(build protected --config "_config.yml,${override}")"
@@ -92,7 +103,7 @@ grep -q 'assets/al_email_protect/css/email-protect.css' "${protected_site}/index
 [ -f "${protected_site}/assets/al_email_protect/css/email-protect.css" ] \
   || fail "email-protect stylesheet referenced but not published"
 
-# ...and with it off (the default), the plugin costs nothing.
+# ...and with it off, the plugin costs nothing.
 disabled_override="${tmp_dir}/protect-email-disabled.yml"
 printf 'protect_email: false\n' >"${disabled_override}"
 disabled_site="$(build disabled --config "_config.yml,${disabled_override}")"
