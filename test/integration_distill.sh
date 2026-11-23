@@ -3,6 +3,7 @@ set -euo pipefail
 
 tmp_dir="$(mktemp -d)"
 tmp_override="${tmp_dir}/distill-override.yml"
+tmp_defaults="${tmp_dir}/distill-defaults.yml"
 tmp_site="${tmp_dir}/site"
 
 cleanup() {
@@ -22,7 +23,16 @@ al_folio:
       enabled: true
 YAML
 
-bundle exec jekyll build --config "_config.yml,${tmp_override}" -d "${tmp_site}" >/dev/null
+ruby -rpsych -e '
+  defaults = Psych.unsafe_load_file("_config.yml").fetch("defaults", [])
+  defaults << {
+    "scope" => { "path" => "_posts/2021-07-04-distill.md", "type" => "posts" },
+    "values" => { "mermaid" => { "enabled" => true }, "tikzjax" => true }
+  }
+  puts({ "defaults" => defaults }.to_yaml)
+' >"${tmp_defaults}"
+
+bundle exec jekyll build --config "_config.yml,${tmp_override},${tmp_defaults}" -d "${tmp_site}" >/dev/null
 
 distill_page="${tmp_site}/blog/2021/distill/index.html"
 
@@ -31,14 +41,21 @@ if [ ! -f "${distill_page}" ]; then
   exit 1
 fi
 
-grep -q 'd-front-matter' "${distill_page}"
-grep -q '/assets/js/distillpub/template.v2.js' "${distill_page}"
-grep -q '/assets/js/distillpub/transforms.v2.js' "${distill_page}"
-grep -q '/assets/js/distillpub/overrides.js' "${distill_page}"
-grep -q '/assets/al_charts/js/mermaid-setup.js' "${distill_page}"
-grep -q 'https://cdn.jsdelivr.net/npm/@planktimerr/tikzjax@1.0.8/dist/fonts.css' "${distill_page}"
-grep -q 'https://cdn.jsdelivr.net/npm/@planktimerr/tikzjax@1.0.8/dist/tikzjax.js' "${distill_page}"
-grep -q 'id="giscus_thread"' "${distill_page}"
+require_page_content() {
+  if ! grep -Fq "$1" "${distill_page}"; then
+    echo "distill page missing expected content: $1" >&2
+    exit 1
+  fi
+}
+
+require_page_content 'd-front-matter'
+require_page_content '/assets/js/distillpub/template.v2.js'
+require_page_content '/assets/js/distillpub/transforms.v2.js'
+require_page_content '/assets/js/distillpub/overrides.js'
+require_page_content '/assets/al_charts/js/mermaid-setup.js'
+require_page_content 'https://cdn.jsdelivr.net/npm/@planktimerr/tikzjax@1.0.8/dist/fonts.css'
+require_page_content 'https://cdn.jsdelivr.net/npm/@planktimerr/tikzjax@1.0.8/dist/tikzjax.js'
+require_page_content 'id="giscus_thread"'
 transforms_runtime="${tmp_site}/assets/js/distillpub/transforms.v2.js"
 distill_runtime="$(PATH="$HOME/.rbenv/shims:$PATH" bundle exec ruby -e 'spec = Gem.loaded_specs["al_folio_distill"]; puts(spec ? File.join(spec.full_gem_path, "assets/js/distillpub/transforms.v2.js") : "")')"
 if [ -f "${distill_runtime}" ]; then
