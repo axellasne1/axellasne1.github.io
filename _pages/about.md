@@ -11,7 +11,7 @@ profile:
   more_info: >
     <p>Munich, Germany</p>
     <p><a href="mailto:axel.lasne@estaca.eu">axel.lasne@estaca.eu</a></p>
-    <p>Available from December</p>
+    <p>Open for new opportunities</p>
 
 selected_papers: false
 social: true
